@@ -11,6 +11,7 @@ module.exports = {
     publicPath: '/dist/',
     filename: "bundle.js",
     chunkFilename: '[name].js',
+    clean: true,
 
   },
   module: {
@@ -25,6 +26,15 @@ module.exports = {
       {
         test: /\.css$/, // Aplicar loaders a archivos .css
         use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          MiniCssExtractPlugin.loader, // Extrae CSS en archivos separados
+          'css-loader', // Procesa CSS
+          'postcss-loader', // Aplica PostCSS a CSS
+          'sass-loader', // Compila Sass a CSS
+        ],
       },
       {
         test: /\.(png|jpe?g|gif|svg|webp)$/i, // Aplicar loader a archivos de imagen

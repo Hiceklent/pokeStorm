@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const getData = async (url) => {
     try {
-        const respuesta = await fetch(url)
+        const respuesta = await axios.get(url)
         const resultado = await respuesta.json();
         return resultado;
     }
@@ -17,14 +17,12 @@ const getData = async (url) => {
 
 const createData = async (url, nuevaData) => {
     try {
-        const opciones = {
-            method: "POST",
+
+        const respuesta = await axios.post(url, nuevaData, {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(nuevaData),
-        };
-        const respuesta = await fetch(url, opciones);
+        });
         if (!respuesta.ok) throw new Error(respuesta.statusText);
         const data = await respuesta.json();
         return data;
@@ -39,10 +37,8 @@ const createData = async (url, nuevaData) => {
 
 const deleteData = async (url) => {
     try {
-        const opciones = {
-            method: "DELETE",
-        };
-        const respuesta = await fetch(url, opciones);
+
+        const respuesta = await axios.delete(url);
         if (!respuesta.ok) throw new Error(respuesta.statusText);
         const resultado = await respuesta.json();
         return resultado;
