@@ -51,21 +51,21 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.html'),
       filename: "index.html",
-      // minify: {
-      //   removeComments: true, // Eliminar comentarios
-      //   collapseWhitespace: true, // Eliminar espacios en blanco adicionales
-      //   removeRedundantAttributes: true, // Eliminar atributos redundantes
-      //   useShortDoctype: true, // Utilizar la forma corta del doctype
-      //   removeEmptyAttributes: true, // Eliminar atributos vacíos
-      //   removeScriptTypeAttributes: true, // Eliminar el atributo type="text/javascript" en los scripts
-      //   removeStyleLinkTypeAttributes: true, // Eliminar el atributo type="text/css" en los estilos
-      //   minifyCSS: true, // Minificar CSS dentro de los estilos
-      //   minifyJS: true, // Minificar JavaScript dentro de los scripts
-      // },
+      minify: {
+        removeComments: true, // Eliminar comentarios
+        collapseWhitespace: true, // Eliminar espacios en blanco adicionales
+        removeRedundantAttributes: true, // Eliminar atributos redundantes
+        useShortDoctype: true, // Utilizar la forma corta del doctype
+        removeEmptyAttributes: true, // Eliminar atributos vacíos
+        removeScriptTypeAttributes: true, // Eliminar el atributo type="text/javascript" en los scripts
+        removeStyleLinkTypeAttributes: true, // Eliminar el atributo type="text/css" en los estilos
+        minifyCSS: true, // Minificar CSS dentro de los estilos
+        minifyJS: true, // Minificar JavaScript dentro de los scripts
+      },
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: 'styles/[name].css',
+      // chunkFilename: '[id].css',
     }),
   ],
   resolve: {
