@@ -1,3 +1,7 @@
 import './styles/main.scss';
 
-alert("conectados");
+import { createHome } from './pages/home/home';
+
+document.addEventListener('DOMContentLoaded', () => {
+    createHome();
+});
