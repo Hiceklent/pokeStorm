@@ -7,7 +7,7 @@ export function createHome() {
     const header = createHeader();
 
     main.innerHTML = /*html*/ `
-    <h2>hola perros</h2>
+    <h2>Aqui va el main</h2>
     `;
 
     document.body.prepend(header);

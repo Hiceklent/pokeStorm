@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin") ;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -8,7 +8,7 @@ module.exports = {
   entry: path.join(__dirname, 'src', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist/',
+    publicPath: '/',
     filename: "bundle.js",
     chunkFilename: '[name].js',
     clean: true,
@@ -18,9 +18,7 @@ module.exports = {
     rules: [
       {
         test: /.jsx?$/,
-        exclude: [
-          path.resolve(__dirname, 'node_modules')
-        ],
+        exclude: /node_modules/,
         loader: 'babel-loader',
       },
       {
@@ -79,7 +77,8 @@ module.exports = {
     compress: true,
     open: true,
     port: 9000,
-    hot: true
+    hot: true,
+    watchFiles: ['src/**/*'],
   },
 
 };
