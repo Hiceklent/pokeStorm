@@ -1,9 +1,10 @@
 import axios from 'axios';
 // GET METHOD
+const URL_API ='https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0'
 
-const getData = async (url) => {
+const getData = async (URL_API) => {
     try {
-        const respuesta = await axios.get(url)
+        const respuesta = await axios.get(URL_API)
         const resultado = await respuesta.json();
         return resultado;
     }
@@ -15,10 +16,10 @@ const getData = async (url) => {
 
 // POST METHOD
 
-const createData = async (url, nuevaData) => {
+const createData = async (URL_API, nuevaData) => {
     try {
 
-        const respuesta = await axios.post(url, nuevaData, {
+        const respuesta = await axios.post(URL_API, nuevaData, {
             headers: {
                 "Content-Type": "application/json",
             },
@@ -35,10 +36,10 @@ const createData = async (url, nuevaData) => {
 
 // DELETE METHOD
 
-const deleteData = async (url) => {
+const deleteData = async (URL_API) => {
     try {
 
-        const respuesta = await axios.delete(url);
+        const respuesta = await axios.delete(URL_API);
         if (!respuesta.ok) throw new Error(respuesta.statusText);
         const resultado = await respuesta.json();
         return resultado;
