@@ -1,0 +1,5 @@
+@font-face {
+  font-family: 'nano';
+  src: url(./nano.woff) format('woff'),
+       url(./nano.woff2) format('woff2');
+}

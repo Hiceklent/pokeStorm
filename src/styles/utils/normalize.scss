@@ -1,7 +1,22 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+* {
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
 
-/* Document
-   ========================================================================== */
+body {
+  min-height: 100dvh;
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
 
 /**
  * 1. Correct the line height in all browsers.

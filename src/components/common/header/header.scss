@@ -1,0 +1,33 @@
+@import '/src/styles/utils/var';
+
+.global-header  { 
+    display: flex;
+    width: 100vw;
+    height: fit-content;
+    background-color:$black;
+    gap: $gap-normal;
+    padding: 20px;
+    align-items: center;
+    
+}
+.header__icon {
+    width: $base-font-size + .3125rem;
+    height: auto;
+    display: flex;
+}
+
+.header__icon svg {
+    height: fit-content;
+    display: flex;
+
+}
+
+.header__icon svg path {
+    fill: $white;
+}
+
+.header__title {
+    color: $white;
+    margin: 0;
+    font-size: $base-font-size;
+}
