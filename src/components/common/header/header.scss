@@ -1,17 +1,17 @@
 @import '/src/styles/utils/var';
 
-.global-header  { 
+.global-header {
     display: flex;
     width: 100vw;
     height: fit-content;
-    background-color:$black;
+    background-color: $black;
     gap: $gap-normal;
     padding: 20px;
     align-items: center;
-    
 }
+
 .header__icon {
-    width: $base-font-size + .3125rem;
+    width: $base-font-size + .125rem;
     height: auto;
     display: flex;
 }
@@ -30,4 +30,5 @@
     color: $white;
     margin: 0;
     font-size: $base-font-size;
+    user-select: none;
 }

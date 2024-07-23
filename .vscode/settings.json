@@ -4,5 +4,6 @@
         "!javascript",
         "!json",
         "!scss"
-    ]
+    ],
+    "editor.fontFamily": ""
 }

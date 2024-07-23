@@ -10,3 +10,7 @@ h1,h2{
     font-size: $headlines-font-size;
     letter-spacing: $title-letter-spacing;
 }
+
+body {
+    min-height: 100vh;
+}
