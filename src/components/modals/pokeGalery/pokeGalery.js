@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Función para obtener los tipos de Pokémon desde la API
-    async function fetchPokemonTypes() {
+    export async function fetchPokemonTypes() {
         try {
             const response = await fetch(URL_API);
             const data = await response.json();
