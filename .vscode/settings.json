@@ -2,6 +2,8 @@
     "cSpell.language": "en",
     "cSpell.enableFiletypes": [
         "!javascript",
-        "!json"
-    ]
+        "!json",
+        "!scss"
+    ],
+    "editor.fontFamily": ""
 }
