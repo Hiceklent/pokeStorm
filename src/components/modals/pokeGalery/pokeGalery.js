@@ -3,7 +3,12 @@ import { getData } from '../../../services/axios-service';
 
 export function createFooter() {
     const footer = document.createElement('footer');
-    footer.innerHTML = `<p>&copy; 2024 Mi Sitio Web</p>`;
+    
+    footer.innerHTML = `<p>&copy; 2024 Mi Sitio Web</p>
+    <button class="open-modal-btn">Open Pokedex</button>
+    `;
+
+    
     return footer;
   }
 

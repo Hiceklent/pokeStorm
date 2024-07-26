@@ -1,6 +1,6 @@
 import axios from 'axios';
+
 // GET METHOD
-const URL_API ='https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0'
 
 const getData = async (URL_API) => {
     try {
