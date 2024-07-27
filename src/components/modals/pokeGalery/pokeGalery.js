@@ -3,28 +3,51 @@ import { getData } from '../../../services/axios-service';
 
 export function createFooter() {
     const footer = document.createElement('footer');
-    
+
     footer.innerHTML = `<p>&copy; 2024 Mi Sitio Web</p>
     <button class="open-modal-btn">Open Pokedex</button>
     `;
 
-    
+
     return footer;
-  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     // Inyecta el HTML del modal en el cuerpo del documento
-    document.body.insertAdjacentHTML('beforeend', `
-        <div class="modal" id="pokedex-modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h2>Pokedex Types</h2>
-                <div class="pokemon-list">
-                    <!-- Aquí se listarán los tipos de Pokémon -->
-                </div>
-            </div>
-        </div>
-    `);
+    document.body.insertAdjacentHTML('beforeend',
+        <footer>
+            <hr>
+                <section class="pokelist">
+                    <articule>
+                    <div class="controls">
+                        <button class="btn-up">Up</button>
+                        <button class="btn-down">Down</button>
+                        <div class="pokemon" >
+                            <div>
+                            <p><span>#001</span></p>
+                            </div>
+                        </div>
+                        <div class="pokemon" >
+                            <div>
+                            <p><span>#115</span></p>
+                            </div>
+                        </div>
+                        <div class="pokemon" >
+                            <div>
+                            <p><span>#009</span></p>
+                            </div>
+                        </div>
+                        <div class="pokemon" >
+                            <div>
+                            <p><span>#119</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    </articule>
+                </section>
+            </hr>
+        </footer>
+    );
 
     const modal = document.getElementById('pokedex-modal');
     const openModalBtn = document.querySelector('.open-modal-btn');
