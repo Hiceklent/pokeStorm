@@ -14,39 +14,56 @@ export function createFooter() {
 
 document.addEventListener('DOMContentLoaded', () => {
     // Inyecta el HTML del modal en el cuerpo del documento
-    document.body.insertAdjacentHTML('beforeend',
+    document.body.insertAdjacentHTML('beforeend', `
         <footer>
-            <hr>
-                <section class="pokelist">
-                    <articule>
-                    <div class="controls">
-                        <button class="btn-up">Up</button>
-                        <button class="btn-down">Down</button>
-                        <div class="pokemon" >
-                            <div>
-                            <p><span>#001</span></p>
+            <div>
+                <hr>
+                    <section class="pokelist">
+                        <article>
+                            <div class="controls">
+                                <button class="btn-up">Up</button>
+                                <button class="btn-down">Down</button>
+                                             <div class="pokemon" >
+                                    <div class ="numberP">
+                                        <p><span>#001</span></p>
+                                    </div>
+                                    <div>
+                                    <svg width="168.49" height="168.49" viewBox="255.755 873.76 168.49 168.49" fill="none">
+                                    </svg>
+                                    </div>
+                                </div>
+                     <div class="pokemon" >
+                                    <div class ="numberP">
+                                        <p><span>#115</span></p>
+                                    </div>
+                                    <div>
+                                    <svg width="168.49" height="168.49" viewBox="255.755 873.76 168.49 168.49" fill="none">
+                                    </svg>
+                                    </div>
+                                </div>
+                     <div class="pokemon" >
+                                    <div class ="numberP">
+                                        <p><span>#009</span></p>
+                                    </div>
+                                    <div>
+                                    <svg width="168.49" height="168.49" viewBox="255.755 873.76 168.49 168.49" fill="none">
+                                    </svg>
+                                    </div>
+                                </div>
+                                <div class="pokemon" >
+                                    <div class ="numberP">
+                                        <p><span>#119</span></p>
+                                    </div>
+                                    <div>
+                                    <svg width="168.49" height="168.49" viewBox="255.755 873.76 168.49 168.49" fill="none">
+                                    </svg>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="pokemon" >
-                            <div>
-                            <p><span>#115</span></p>
-                            </div>
-                        </div>
-                        <div class="pokemon" >
-                            <div>
-                            <p><span>#009</span></p>
-                            </div>
-                        </div>
-                        <div class="pokemon" >
-                            <div>
-                            <p><span>#119</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    </articule>
-                </section>
-            </hr>
-        </footer>
+                        </article>
+                    </section>
+            </div>
+        </footer>`
     );
 
     const modal = document.getElementById('pokedex-modal');
