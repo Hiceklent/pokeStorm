@@ -28,6 +28,8 @@ export function createFooter() {
     return footer;
 }
 
+console.log(createFooter);
+
 // document.addEventListener('DOMContentLoaded', () => {
 // // Inyecta el HTML del modal en el cuerpo del documento
 // document.body.insertAdjacentHTML('beforeend', ` `

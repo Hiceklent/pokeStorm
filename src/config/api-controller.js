@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import { getData } from "/src/services/axios-service.js";
 
 // URL API
@@ -12,7 +11,7 @@ async function getPokes() {
         const response = await getData(URL_API);
         const pokeData = await response.data.results;
         return pokeData;
-        
+
     } catch (error) {
         console.error(error);
         return null;
