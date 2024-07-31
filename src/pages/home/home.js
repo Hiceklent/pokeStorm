@@ -14,5 +14,5 @@ export function createHome() {
 
     document.body.prepend(header);
     document.body.appendChild(main);
-    document.body.append(footer);
+    document.body.appendChild(footer);
 }
