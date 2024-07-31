@@ -8,8 +8,9 @@ const getData = async (URL_API) => {
         // if (!respuesta.ok){
         //     throw new Error(respuesta.statusText);
         // }
-        const resultado = await respuesta.json();
-        return resultado;
+        // const resultado = await respuesta.json();
+        return respuesta;
+        console.log(respuesta);
     }
     catch (error) {
         console.log(error);

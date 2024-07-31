@@ -1,7 +1,7 @@
 import './pokeGalery.scss';
 import { getPokes } from '../../../config/api-controller.js';
-getPokes()
-console.log (getPokes)
+
+const listaPokemones = await getPokes();
 
 function scrollContent(amount) {
   var pokelist = document.getElementById('pokelist');
