@@ -5,9 +5,9 @@ import axios from 'axios';
 const getData = async (URL_API) => {
     try {
         const respuesta = await axios.get(URL_API);
-        if (!respuesta.ok){
-            throw new Error(respuesta.statusText);
-        }
+        // if (!respuesta.ok){
+        //     throw new Error(respuesta.statusText);
+        // }
         const resultado = await respuesta.json();
         return resultado;
     }
