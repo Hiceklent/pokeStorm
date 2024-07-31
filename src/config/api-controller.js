@@ -3,6 +3,10 @@ import { getData } from "/src/services/axios-service.js";
 // URL API
 const URL_JSON = 'http://localhost:3000/productos/';
 
+const ENDPOINTS = {
+    
+}
+
 
 // Function
 async function getpokes() {
