@@ -2,15 +2,10 @@ import axios from 'axios';
 
 // GET METHOD
 
-const getData = async (URL_API) => {
+export const getData = async (URL_API) => {
     try {
         const respuesta = await axios.get(URL_API);
-        // if (!respuesta.ok){
-        //     throw new Error(respuesta.statusText);
-        // }
-        // const resultado = await respuesta.json();
-        return respuesta;
-        console.log(respuesta);
+        return respuesta.data.results;
     }
     catch (error) {
         console.log(error);
@@ -18,45 +13,21 @@ const getData = async (URL_API) => {
     }
 }
 
-// POST METHOD
-
-const createData = async (URL_API, nuevaData) => {
+export const getPokemonDetails = async (url) => {
     try {
-
-        const respuesta = await axios.post(URL_API, nuevaData, {
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        if (!respuesta.ok) throw new Error(respuesta.statusText);
-        const data = await respuesta.json();
-        return data;
+      const response = await axios.get(url);
+      const { id, name, sprites, height, weight, types, abilities } = response.data;
+      return {
+        id,
+        name,
+        image: sprites.other.home.front_default,
+        height,
+        weight,
+        types: types.map(typeInfo => typeInfo.type.name),
+        abilities: abilities.map(abilitiesInfo => abilitiesInfo.ability.name),
+      };
     } catch (error) {
-        console.error(error);
-        return null;
+      console.error('Error fetching pokemon details:', error);
+      return null;
     }
-};
-
-
-// DELETE METHOD
-
-const deleteData = async (URL_API) => {
-    try {
-
-        const respuesta = await axios.delete(URL_API);
-        if (!respuesta.ok) throw new Error(respuesta.statusText);
-        const resultado = await respuesta.json();
-        return resultado;
-    } catch (error) {
-        console.error(error);
-        return null;
-    }
-};
-
-// EXPORT
-
-export {
-    createData,
-    deleteData,
-    getData
-};
+  };
