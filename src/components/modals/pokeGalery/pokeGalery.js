@@ -29,18 +29,12 @@ function createCards(pokemon) {
         card.classList.add('pokeCard');
         card.id = 'cardPokemon';
         card.dataset.id = pokemon.id;
-        const imageIcon = null
-
-        if(pokemon.type == 'fire') {
-                imageIcon = fire
-        }
 
         card.innerHTML = /*html*/ `
         <span class="pokeCard__id">#${pokemon.id}</span>
         <figure class="pokeCard__img">
         <img src="${pokemon.image}"  alt="${pokemon.name}">
         </figure>
-        <img id="type" src="${imageIcon}"  alt="${pokemon.name}">
         `;
 
 
