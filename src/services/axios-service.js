@@ -16,7 +16,13 @@ export const getData = async (URL_API) => {
 export const getPokemonDetails = async (url) => {
     try {
       const response = await axios.get(url);
-      const { id, name, sprites, height, weight, types, abilities } = response.data;
+      const { id, name, sprites, height, weight, types, abilities, stats } = response.data;
+
+      const pokeStats = stats.map((statsInfo) => ({
+        name: statsInfo.stat.name,
+        baseStats: statsInfo.base_stat
+      }));
+
       return {
         id,
         name,
@@ -25,6 +31,7 @@ export const getPokemonDetails = async (url) => {
         weight,
         types: types.map(typeInfo => typeInfo.type.name),
         abilities: abilities.map(abilitiesInfo => abilitiesInfo.ability.name),
+        stats: pokeStats
       };
     } catch (error) {
       console.error('Error fetching pokemon details:', error);
