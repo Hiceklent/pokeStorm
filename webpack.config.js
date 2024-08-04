@@ -36,8 +36,12 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|webp)$/i, // Aplicar loader a archivos de imagen
-        type: "asset/resource",
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name].[ext]',
+        },
       },
+
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         type: 'asset/resource', // Copia archivos de fuentes a la carpeta de salida
