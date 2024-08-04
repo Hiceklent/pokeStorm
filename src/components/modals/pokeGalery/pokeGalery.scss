@@ -9,7 +9,6 @@
     max-height: 342px;
     display: block;
     flex-direction: column;
-    overflow-y: scroll;
 
 
     &__boton {
@@ -69,8 +68,10 @@
     grid-auto-rows: minmax(100px,120px);
     grid-auto-flow: dense;
     justify-content: center;
-    gap: 20px;
+    gap: 40px 20px;
     margin: 20px 0 30px 0;
+    overflow-y: scroll;
+    height: 100%;
 }
 
 /* Estilos para cada tarjeta */

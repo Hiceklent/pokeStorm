@@ -1,1 +1,20 @@
-@import '../../styles/utils/var.scss'
+@import '../../styles/utils/var.scss';
+
+
+.main-pokemon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100% ;
+    background-image: url('../../assets/icons/pokeball-icon.svg');
+
+    
+
+}
+
+.main-pokemon::before {
+    content: '';
+    background-image: url('../../assets/icons/pokeball-icon.svg');
+}
+    

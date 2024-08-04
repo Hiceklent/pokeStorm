@@ -1,5 +1,6 @@
 import './pokeGalery.scss';
-import {  setToStorage } from '../../../utils/localStorageTools.js';
+import { setToStorage } from '../../../utils/localStorageTools.js';
+import { updateDetailsContent } from '../../../pages/home/functions/updateMain.js'
 
 
 export function createFooter(listaPokemons) {
@@ -47,7 +48,8 @@ function createCards(pokemon) {
 
         card.addEventListener('click', () => {
                 console.log(pokemon);
-                setToStorage('pokemon', pokemon);                // sessionStorage.setItem('pokemon', JSON.stringify(pokemon));
+                setToStorage('pokemon', pokemon);
+                updateDetailsContent(pokemon);          // sessionStorage.setItem('pokemon', JSON.stringify(pokemon));
         })
         return card
 }
