@@ -26,6 +26,11 @@ const getPokes = async (limit = 5) => {
         
     } catch (error) {
         console.error(error)
+
+        const body = document.createElement("body");
+        body.innerHTML = `<h1>Hubo un error ${error}</h1>`
+
+        document.body.appendChild(body)
     }
 
 };
