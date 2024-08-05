@@ -1,0 +1,5 @@
+@font-face {
+  font-family: 'Azonix';
+  src: url(./Azonix.woff) format('woff'),
+       url(./Azonix.woff2) format('woff2');
+}

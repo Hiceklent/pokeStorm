@@ -1,0 +1,36 @@
+@import '/src/styles/utils/var';
+
+.global-header {
+    display: flex;
+    width: 100vw;
+    height: fit-content;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%,rgba(242, 242, 242, 1) 100%);
+    box-shadow: 0 -2px 23px 7px rgb(0 0 0 / 9%);
+    gap: $gap-normal;
+    padding: 20px;
+    align-items: center;
+}
+
+.header__icon {
+    width: $base-font-size + .125rem;
+    height: auto;
+    display: flex;
+}
+
+.header__icon svg {
+    height: fit-content;
+    display: flex;
+
+}
+
+.header__icon svg path {
+    fill: $black;
+}
+
+.header__title {
+    color:$black;
+    margin: 0;
+    font-size: $base-font-size;
+    user-select: none;
+    letter-spacing: 1.5px;
+}

@@ -1,0 +1,182 @@
+@import '../../styles/utils/var.scss';
+
+
+.main-pokemon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap:wrap;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    &__nameBox {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 10px;
+        padding: 0 0 0 20px;
+        text-align: end;
+        width: 280px;
+        padding-top: 20px;
+
+    }
+
+
+    &__typeIcon {
+        aspect-ratio: 1/1;
+        width: 20px;
+        height: 20px;
+    }
+
+    &__typeIcon svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__typeIcon svg path {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    &__name {
+        color: $black;
+        font-size: $sub-headlines-font-size;
+        font-weight: 600;
+
+    }
+
+    &__image {
+        aspect-ratio: 1/1;
+        width: 200px;
+        height: 200px;
+        right: 20px;
+    }
+
+    &__image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    &__detailsBox {
+        display: grid;
+        grid-template-rows: 0.88fr 1fr;
+        grid-template-columns: 1.5fr 1fr 1.8fr;
+        grid-auto-flow: dense;
+        justify-content: center;
+
+        width: 440px;
+        gap: $gap-normal;
+        padding-left: 12px;
+        list-style: none;
+    }
+
+    &__detailsBox div {
+        background-color: $secondary-color;
+        border-radius: 20px;
+        padding: 14px;
+        background: linear-gradient(180deg, #fff 0, #e1e1e1);
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        box-shadow: 0 13px 5px -5px rgba(0, 0, 0, 0.007);
+        transition: transform .2s ease;
+        user-select: none;
+
+        & h3 {
+            color: $font-color-grey;
+            font-family: $font-paragraph;
+            margin-bottom: 4px;
+        }
+
+        & ul {
+            list-style: none;
+            margin-left: 6px;
+
+            & li {
+                font-family: $font-paragraph;
+                line-height: 20px;
+                font-size: $small-font-size;
+            }
+
+           
+        }
+
+        
+
+
+    }
+
+    &__typeItem {
+        border-radius: 16px;
+        text-align: center;
+        color: $white;
+        font-size: calc($small-font-size - 4px)!important;
+        font-weight: $font-weight-bold;
+        padding: 2px 8px;
+        margin-bottom: 5px;
+        height: 24px;
+        min-width:  54px;
+    }
+
+    &__abilities {
+        grid-area: 1/1/2/2;
+    }
+
+    &__type {
+        grid-area: 1/2/2/3;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    &__typeTitle{
+       margin-bottom: 6px!important;
+       color: $font-color-grey;
+        font-size: $small-font-size;
+        font-weight: $font-weight-bold;
+        color: $white;
+        font-family: $font-headings;
+    }
+
+    &__weightHeight {
+        grid-area: 1 / 3 / 2 / 5;
+    }
+
+    &__stats {
+        grid-area: 2 / 1 / 3 / 5;
+    }
+
+
+}
+
+.main-pokemon::before {
+    content: '';
+    aspect-ratio: 1/1;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background-image: url('../../assets/icons/pokeball-icon.svg');
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    left: -500px;
+    opacity: 0.04;
+    animation: pokerotate 10s linear infinite;
+
+}
+
+@keyframes pokerotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+
+}
