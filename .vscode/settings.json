@@ -1,9 +1,0 @@
-{
-    "cSpell.language": "en",
-    "cSpell.enableFiletypes": [
-        "!javascript",
-        "!json",
-        "!scss"
-    ],
-    "editor.fontFamily": ""
-}
