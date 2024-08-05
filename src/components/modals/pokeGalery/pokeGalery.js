@@ -1,6 +1,7 @@
 import './pokeGalery.scss';
 import { setToStorage } from '../../../utils/localStorageTools.js';
 import { updateDetailsContent } from '../../../pages/home/functions/updateMain.js'
+import { searchInput } from '../../common/search-input/search-input.js'
 
 
 export function createFooter(listaPokemons) {
@@ -11,14 +12,22 @@ export function createFooter(listaPokemons) {
         cardsContainer.classList.add('pokeCard__containers');
         cardsContainer.id = 'pokelist';
 
+        const searchInputContainer = searchInput();
 
-        listaPokemons.forEach(pokemon => {
-                const pokeCard = createCards(pokemon);
-                cardsContainer.appendChild(pokeCard);
-        });
+        searchInputContainer.addEventListener('input', (e) => {
+                const value = e.target.value.trim().toLowerCase();
+                const pokemons = listaPokemons.filter(pokemon => pokemon.name.includes(value));
+                cardsContainer.innerHTML = '';
+                pokemons.forEach(pokemon => {
+                        const pokeCard = createCards(pokemon);
+                        cardsContainer.appendChild(pokeCard);
+                })
+        })
+
+
 
         footer.innerHTML = /*html*/ ` 
-                <button class="pokeGalery__boton"  id="open-modal">
+                <button class="pokeGalery__boton"  id="boton-pokeGalery">
                         <svg width="22.39" xmlns="http://www.w3.org/2000/svg" height="13.704" viewBox="-4.343 4.343 22.39 13.704" fill="none">
                                 
                                         <path
@@ -27,6 +36,26 @@ export function createFooter(listaPokemons) {
                         </svg>
                 </button>`
 
+        const botonPokeGalery = footer.querySelector('#boton-pokeGalery');
+
+
+        botonPokeGalery.addEventListener('click', () => {
+                const pokeGalery = document.querySelector('.pokeGalery');
+                pokeGalery.classList.toggle('pokeGalery--active');
+
+                if (pokeGalery.classList.contains('pokeGalery--active')) {
+                        
+                        pokeGalery.style.height = '500px';
+
+                }
+        })
+
+        listaPokemons.forEach(pokemon => {
+                const pokeCard = createCards(pokemon);
+                cardsContainer.appendChild(pokeCard);
+        });
+
+        footer.append(searchInputContainer);
         footer.appendChild(cardsContainer);
 
         return footer;
@@ -49,7 +78,12 @@ function createCards(pokemon) {
         card.addEventListener('click', () => {
                 console.log(pokemon);
                 setToStorage('pokemon', pokemon);
-                updateDetailsContent(pokemon);          // sessionStorage.setItem('pokemon', JSON.stringify(pokemon));
+                updateDetailsContent(pokemon);
+                const namePokemon = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+                document.title = `PokeStorm - ${namePokemon} `
+                
+                const pokeGalery = document.querySelector('.pokeGalery');
+                pokeGalery.classList.remove('pokeGalery--active');
         })
         return card
 }

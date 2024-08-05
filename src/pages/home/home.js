@@ -2,6 +2,7 @@ import './home.scss';
 import { createHeader } from '../../components/common/header/header';
 import { createFooter } from '../../components/modals/pokeGalery/pokeGalery';
 import { addTypeIcon } from './module/svgTypesControls';
+
 export async function createHome(listaPokemons, pokeInStorage) {
 
     if (!pokeInStorage) {
@@ -12,12 +13,14 @@ export async function createHome(listaPokemons, pokeInStorage) {
     main.classList.add('main-pokemon');
     const header = createHeader();
     const footer = createFooter(listaPokemons);
+
     const typeIconContainer = document.createElement('figure');
     typeIconContainer.classList.add('main-pokemon__typeIcon');
     typeIconContainer.id = 'pokemon-type-icon-container';
 
 
     main.innerHTML = /*html*/ `
+
     <div class="main-pokemon__nameBox">
     ${typeIconContainer.outerHTML}
     <h2 id="pokemon-name"class="main-pokemon__name">${pokeInStorage.name}</h2>
@@ -48,8 +51,8 @@ export async function createHome(listaPokemons, pokeInStorage) {
             <div class="main-pokemon__weightHeight">
             <h3 class="main-pokemon__weightHeightTitle">Weight/Height</h3>
             <ul class="main-pokemon__weightHeightList">
-                <li class="main-pokemon__weightHeightItem">${pokeInStorage.weight} kg</li>
-                <li class="main-pokemon__weightHeightItem">${pokeInStorage.height} m</li>
+                <li class="main-pokemon__weightHeightItem" id ="pokemon-weight">${pokeInStorage.weight} kg</li>
+                <li class="main-pokemon__weightHeightItem"id ="pokemon-height">${pokeInStorage.height} m</li>
             </ul>
         </div>
 

@@ -21,6 +21,8 @@ export const pokeTypesColors = (type) =>{
     else { return '#000000'; }
 }
 
+
+
 export const addTypeIcon = async (type) =>{ 
     const svgPokeTypeContainer =  document.getElementById('pokemon-type-icon-container');
     const TypeColor = pokeTypesColors(type);
