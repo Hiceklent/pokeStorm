@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 
 module.exports = {
@@ -36,17 +38,18 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|webp)$/i, // Aplicar loader a archivos de imagen
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-          outputPath: 'images/',
-          publicPath: 'images/',
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[name][ext]', // Ruta de salida
         },
       },
 
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        type: 'asset/resource', // Copia archivos de fuentes a la carpeta de salida
+        type: 'asset/resource', 
+        generator: {
+          filename: 'assets/fonts/[name][ext]', // Ruta de salida
+        }, 
       },
     ]
   },
@@ -70,6 +73,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'styles/[name].css',
       // chunkFilename: '[id].css',
+    }),
+
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'src/assets/images', to: 'assets/images' },
+      ],
     }),
   ],
   resolve: {

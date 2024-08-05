@@ -11,7 +11,7 @@ const ENDPOINTS = {
 
 // Function
 
-const getPokes = async (limit = 20) => {
+const getPokes = async (limit = 50) => {
     
     try {
        // const newArrayForAllPokemonDetails = []

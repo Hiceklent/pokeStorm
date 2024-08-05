@@ -27,8 +27,8 @@ export const getPokemonDetails = async (url) => {
         id,
         name,
         image: sprites.other.home.front_default,
-        height,
-        weight,
+        height: height / 10,
+        weight: weight / 10,
         types: types.map(typeInfo => typeInfo.type.name),
         abilities: abilities.map(abilitiesInfo => abilitiesInfo.ability.name),
         stats: pokeStats
