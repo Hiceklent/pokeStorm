@@ -1,15 +1,24 @@
 @import '/src/styles/utils/var';
 
+.pokeGalery--active {
+    position: absolute;
+    max-height: 80vh!important;
+    height: 80vh;
+    bottom: 0;
+    width: 100%;
+}
 /* Estilos para el footer */
 .pokeGalery {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     background-color: #f8f9fa;
     padding: 20px;
     text-align: center;
     border-top: 2px solid #ececec;
     max-height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    transition: all 0.3s ease;
 
     &__boton {
         // color: white;
@@ -30,7 +39,16 @@
         transition: background-color 0.3s ease;
 
         &:hover {
-            background-color: #acacac;
+            background-color: #cccccc;
+        }
+
+        &:active {
+            background-color: #585858;
+            transform: translateX(-50%) scale(0.9);
+        }
+
+        &:active svg {
+            width: 20px;
         }
 
 
@@ -65,7 +83,7 @@
 .pokeCard__containers {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 100px), 100px));
-    grid-auto-rows: minmax(60px,100px);
+    grid-auto-rows: minmax(60px,60px);
     grid-auto-flow: dense;
     justify-content: center;
     gap: 40px 20px;
@@ -74,6 +92,7 @@
     height: 100%;
     padding: 20px 0 40px 0;
     max-width: 1280px;
+    margin: 0 auto;
 }
 
 /* Estilos para cada tarjeta */

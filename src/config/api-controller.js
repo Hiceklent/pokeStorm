@@ -4,15 +4,11 @@ import { getData, getPokemonDetails } from "/src/services/axios-service.js";
 //Traer 5 pokemon
 const URL_API = 'https://pokeapi.co/api/v2/pokemon'
 
-const ENDPOINTS = {
-    
-}
-
 
 // Function
 
-const getPokes = async (limit = 50) => {
-    
+const getPokes = async (limit = 20) => {
+
     try {
        // const newArrayForAllPokemonDetails = []
         const url = `${URL_API}?limit=${limit}`;
@@ -38,5 +34,21 @@ const getPokes = async (limit = 50) => {
     }
 
 };
+
+const getPokesByName = async (name) => {
+    try {
+        const url = `${URL_API}?limit=100000&offset=0`;
+        const pokemon = await getData(url);
+        console.log(pokemon);
+        const pokemonFilter = pokemon.find(pokemon => pokemon.name === name);
+        console.log(pokemonFilter);
+        
+        return pokemonFilter
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+getPokesByName('poke')
 
 export { getPokes }
