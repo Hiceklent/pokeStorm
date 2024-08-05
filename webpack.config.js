@@ -10,6 +10,7 @@ module.exports = {
   entry: path.join(__dirname, 'src', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     filename: "[name].[contenthash].js",
     chunkFilename: '[name].js',
     clean: true,
