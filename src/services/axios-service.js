@@ -1,11 +1,11 @@
 import axios from 'axios';
+
 // GET METHOD
 
-const getData = async (url) => {
+export const getData = async (URL_API) => {
     try {
-        const respuesta = await axios.get(url)
-        const resultado = await respuesta.json();
-        return resultado;
+        const respuesta = await axios.get(URL_API);
+        return respuesta.data.results;
     }
     catch (error) {
         console.log(error);
@@ -13,45 +13,28 @@ const getData = async (url) => {
     }
 }
 
-// POST METHOD
-
-const createData = async (url, nuevaData) => {
+export const getPokemonDetails = async (url) => {
     try {
+      const response = await axios.get(url);
+      const { id, name, sprites, height, weight, types, abilities, stats } = response.data;
 
-        const respuesta = await axios.post(url, nuevaData, {
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        if (!respuesta.ok) throw new Error(respuesta.statusText);
-        const data = await respuesta.json();
-        return data;
+      const pokeStats = stats.map((statsInfo) => ({
+        name: statsInfo.stat.name,
+        baseStats: statsInfo.base_stat
+      }));
+
+      return {
+        id,
+        name,
+        image: sprites.other.home.front_default,
+        height: height / 10,
+        weight: weight / 10,
+        types: types.map(typeInfo => typeInfo.type.name),
+        abilities: abilities.map(abilitiesInfo => abilitiesInfo.ability.name),
+        stats: pokeStats
+      };
     } catch (error) {
-        console.error(error);
-        return null;
+      console.error('Error fetching pokemon details:', error);
+      return null;
     }
-};
-
-
-// DELETE METHOD
-
-const deleteData = async (url) => {
-    try {
-
-        const respuesta = await axios.delete(url);
-        if (!respuesta.ok) throw new Error(respuesta.statusText);
-        const resultado = await respuesta.json();
-        return resultado;
-    } catch (error) {
-        console.error(error);
-        return null;
-    }
-};
-
-// EXPORT
-
-export {
-    createData,
-    deleteData,
-    getData
-};
+  };
