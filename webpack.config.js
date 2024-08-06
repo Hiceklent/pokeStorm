@@ -44,6 +44,14 @@ module.exports = {
       },
 
       {
+        test: /\.(mp3|wav|ogg|m4a)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/sounds/[name][ext]'
+        }
+      },
+
+      {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         type: 'asset/resource', 
         generator: {
@@ -77,6 +85,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: 'src/assets/images', to: 'assets/images' },
+        { from: 'src/assets/sounds', to: 'assets/sounds' },
       ],
     }),
   ],

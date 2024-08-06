@@ -2,7 +2,15 @@ import './pokeGalery.scss';
 import { setToStorage } from '../../../utils/localStorageTools.js';
 import { updateDetailsContent } from '../../../pages/home/functions/updateMain.js'
 import { searchInput } from '../../common/search-input/search-input.js'
+import { initSounds, playSoundByKey, toggleMute, isMuted } from '../../../utils/soundManager.js';
 
+
+// bgSound: '../assets/sounds/ui/bgSound.mp3',
+// mouseHoverSound : '../assets/sounds/ui/overMouseSound.wav',
+// buttonClickSound: '../assets/sounds/ui/ToggleBotonSound.wav',
+// cardSelectedSound: '../assets/sounds/ui/selectedSound.wav',
+// openCloseSound : '../assets/sounds/ui/ToggleButton_Swap.wav',
+// SmallsButtonsSound: '../assets/sounds/ui/ToggleBotonSound.wav'
 
 export function createFooter(listaPokemons) {
         const footer = document.createElement('footer');
@@ -16,6 +24,7 @@ export function createFooter(listaPokemons) {
 
         searchInputContainer.addEventListener('input', (e) => {
                 const value = e.target.value.trim().toLowerCase();
+                playSoundByKey('SmallsButtonsSound');
                 const pokemons = listaPokemons.filter(pokemon => pokemon.name.includes(value));
                 cardsContainer.innerHTML = '';
                 pokemons.forEach(pokemon => {
@@ -41,6 +50,8 @@ export function createFooter(listaPokemons) {
 
         botonPokeGalery.addEventListener('click', () => {
                 const pokeGalery = document.querySelector('.pokeGalery');
+                playSoundByKey('buttonClickSound')
+                playSoundByKey('openCloseSound')
                 pokeGalery.classList.toggle('pokeGalery--active');
 
                 if (pokeGalery.classList.contains('pokeGalery--active')) {
@@ -75,6 +86,11 @@ function createCards(pokemon) {
         </figure>
         `;
 
+        card.addEventListener('mouseover', () => {
+                playSoundByKey('mouseHoverSound');
+        })
+
+
         card.addEventListener('click', () => {
                 console.log(pokemon);
                 setToStorage('pokemon', pokemon);
@@ -84,9 +100,14 @@ function createCards(pokemon) {
                 
                 const pokeGalery = document.querySelector('.pokeGalery');
                 pokeGalery.classList.remove('pokeGalery--active');
+
+                playSoundByKey('cardSelectedSound');
         })
+
+
+
+
         return card
 }
 
-
-
+initSounds();

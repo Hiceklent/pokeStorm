@@ -1,7 +1,6 @@
 import { getData, getPokemonDetails } from "/src/services/axios-service.js";
 
 // URL API
-//Traer 5 pokemon
 const URL_API = 'https://pokeapi.co/api/v2/pokemon'
 
 
@@ -49,6 +48,5 @@ const getPokesByName = async (name) => {
     }
 }
 
-getPokesByName('poke')
 
 export { getPokes }
